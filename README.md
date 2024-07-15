@@ -23,8 +23,8 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/your-username/perpetuals-dex-router.git
-    cd perpetuals-dex-router
+    git clone https://github.com/Bryanmankind/Router_Dex.git
+    cd router-dex
     ```
 
 2. Install the necessary dependencies:
