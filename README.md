@@ -1,22 +1,6 @@
-Sure, I'll create a README template for deploying a Perpetuals DEX on the Router blockchain. This will include instructions for setting up the environment, deploying the smart contracts, and interacting with the DEX.
+## DEX on Router Blockchain
 
----
-
-# Perpetuals DEX on Router Blockchain
-
-## Introduction
-
-This project deploys a decentralized exchange (DEX) for trading perpetual contracts on the Router blockchain. The DEX allows users to trade perpetual contracts with leverage, offering decentralized and non-custodial trading.
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- [Node.js](https://nodejs.org/) (version 14.x or later)
-- [npm](https://www.npmjs.com/) (version 6.x or later)
-- [Hardhat](https://hardhat.org/) (for smart contract development)
-- Router blockchain development environment setup
-- A Router blockchain wallet and some test tokens for deployment
+This project involves deploying a decentralized exchange (DEX) on the Router blockchain. The DEX enables users to seamlessly swap tokens, providing a secure, efficient, and user-friendly platform for trading digital assets. By leveraging the Router blockchain's advanced capabilities, the DEX aims to enhance liquidity and facilitate smooth, decentralized transactions.
 
 ## Project Setup
 
@@ -117,10 +101,3 @@ You can interact with the deployed DEX using a frontend application or directly 
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
----
-
-Feel free to customize this template to better fit your specific project and requirements.
