@@ -5,8 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
-
+,km                                                                                                                                                                                                                                                                                                                                                                                                                                             
 contract RouterDex is ERC20, Ownable {
 
     using SafeERC20 for IERC20;
@@ -14,34 +13,33 @@ contract RouterDex is ERC20, Ownable {
    
     
     // @dev address of trading token;
-    IERC20 public tradingToken;
+    IERC20 public _poolToken;
 
 
-    constructor (IERC20 _tradingToken) ERC20("ROUTE", "RIT") Ownable(msg.sender) {
-        tradingToken = IERC20 (_tradingToken);
-        
+    constructor (IERC20 _token) ERC20("ROUTE", "RIT") Ownable(msg.sender) {
+        _poolToken = IERC20 (_token);   
     }
-
+  
     function dexBalance () public view returns (uint256) {
-        return IERC20(tradingToken).balanceOf(address(this));
+        return IERC20(_poolToken).balanceOf(address(this));
     }
 
     function addLiquidity (uint256 _amount) public payable returns (uint256) {
         uint256 _liquidity;
-        uint256 _balanceInEth = balanceOf(address(this));
+        uint256 _balanceInEth = balanceOf(address(this ));   
         uint256 tokenReserve = dexBalance();
-        IERC20 _tradingToken = IERC20 (tradingToken);
+        IERC20 _Token = IERC20 (_poolToken);
 
         if (tokenReserve == 0) {
-            _tradingToken.transferFrom(msg.sender, address(this), _amount);
-            _liquidity = _balanceInEth;
+            _Token.transferFrom(msg.sender, address(this), _amount);
+            _liquidity = _balanceInEth; // i don't understand here
             _mint(msg.sender, _amount);
         }else {
             uint256 reservedETH = _balanceInEth - msg.value;
             require(_amount >= (tokenReserve * msg.value)/ reservedETH, "less than tokens required");
-            _tradingToken.transferFrom(msg.sender, address(this), _amount);
+            _Token.transferFrom(msg.sender, address(this), _amount);
 
-            unchecked {
+            unchecked {// i don't understand here
                 _liquidity = (totalSupply() * msg.value) / reservedETH;
             }
 
